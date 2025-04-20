@@ -29,7 +29,7 @@ export default function ETransferPage() {
           </h2>
           <p className="text-gray-700">
             Email money transfers are a great way to donate right from your bank
-            account. They're a bit more challenging to set up, but they help the
+            account. They&apos;re a bit more challenging to set up, but they help the
             church avoid payment processing fees. We recommend e-transfers for
             long-time members and frequent givers.
           </p>
@@ -75,7 +75,7 @@ export default function ETransferPage() {
             content: (
               <>
                 <p className="text-gray-700 mb-2">
-                  Now you're ready to send money through an e-transfer. Create a
+                  Now you&apos;re ready to send money through an e-transfer. Create a
                   new e-transfer and enter the following:
                 </p>
                 <ul className="text-gray-700 space-y-1 pl-4 list-disc">
@@ -93,7 +93,7 @@ export default function ETransferPage() {
                     </em>
                   </li>
                   <li>
-                    <strong>Account:</strong> Choose the account you'd like to
+                    <strong>Account:</strong> Choose the account you&apos;d like to
                     send from.
                   </li>
                 </ul>
@@ -106,7 +106,7 @@ export default function ETransferPage() {
               <>
                 <p className="text-gray-700 mb-2">
                   The last step is to choose a security question and answer. The
-                  question can be anything, but it’s{" "}
+                  question can be anything, but it&apos;s{" "}
                   <strong>very important</strong> that the answer is:
                 </p>
                 <p className="bg-slate-100 border-l-4 border-slate-400 px-4 py-2 font-mono rounded-md w-fit">
@@ -120,7 +120,7 @@ export default function ETransferPage() {
             content: (
               <p className="text-gray-700">
                 Now the last step is to send the transfer. Some banks also allow
-                you to set up recurring transfers if you'd like.
+                you to set up recurring transfers if you&apos;d like.
                 <br />
                 <br />
                 Thank you so much for supporting the vision at CIT.

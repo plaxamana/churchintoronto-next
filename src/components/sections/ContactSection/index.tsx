@@ -92,7 +92,7 @@ export default function ContactSection() {
               Toronto, Ontario M2K 1B6
             </p>
             <a
-              href="https://goo.gl/maps/m94T9BPR4mS3F81N7"
+              href="https://maps.app.goo.gl/5G4sJ8TNGUNng2iz8"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block mt-4 px-4 py-2 border rounded text-sm font-semibold hover:bg-gray-100 transition"

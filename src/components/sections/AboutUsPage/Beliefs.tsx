@@ -49,9 +49,9 @@ export default function Beliefs() {
         </p>
       </motion.div>
 
-      <div className="max-w-3xl mx-auto space-y-10">
+      <ul className="max-w-3xl mx-auto space-y-10">
         {beliefs.map((item, i) => (
-          <motion.div
+          <motion.li
             key={item.title}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -65,9 +65,9 @@ export default function Beliefs() {
               </h3>
             </div>
             <p className="text-gray-700 leading-relaxed">{item.text}</p>
-          </motion.div>
+          </motion.li>
         ))}
-      </div>
+      </ul>
     </section>
   );
 }

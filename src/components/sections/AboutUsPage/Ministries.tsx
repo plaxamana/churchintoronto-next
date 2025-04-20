@@ -45,9 +45,9 @@ export default function Ministries() {
         </p>
       </motion.div>
 
-      <div className="max-w-3xl mx-auto space-y-10">
+      <ul className="max-w-3xl mx-auto space-y-10">
         {ministries.map((item, i) => (
-          <motion.div
+          <motion.li
             key={item.title}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -64,9 +64,9 @@ export default function Ministries() {
             {item.note && (
               <p className="text-sm text-gray-600 italic mt-2">{item.note}</p>
             )}
-          </motion.div>
+          </motion.li>
         ))}
-      </div>
+      </ul>
     </section>
   );
 }

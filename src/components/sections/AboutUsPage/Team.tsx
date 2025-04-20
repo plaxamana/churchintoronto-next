@@ -61,21 +61,22 @@ export default function Team() {
         </h2>
       </motion.div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-10 max-w-6xl mx-auto">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-16 max-w-6xl mx-auto">
         {team.map((person, index) => (
           <motion.div
             key={person.name}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: index * 0.05 }}
+            transition={{ delay: index * 0.125 }}
             className="text-center"
           >
-            <div className="relative w-32 h-32 mx-auto rounded-full overflow-hidden mb-4 shadow-md">
+            <div className="relative w-48 h-48 mx-auto rounded-full overflow-hidden mb-4 shadow-md">
               <Image
                 src={person.image}
                 alt={person.name}
                 fill
+                sizes="(min-width: 768px) 160px, 100vw"
                 className="object-cover"
               />
             </div>

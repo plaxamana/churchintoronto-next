@@ -58,7 +58,7 @@ export default function Page() {
               Simply text an amount to <strong>84321</strong>
             </p>
             <p className="text-gray-600 text-sm">
-              If it’s your first time giving by text, you'll get a message back
+              If it&apos;s your first time giving by text, you&apos;ll get a message back
               with a link to get your giving account set up. Every other time
               will be as simple as sending a text message.
               <br />
@@ -70,7 +70,7 @@ export default function Page() {
             <h3 className="font-semibold text-lg mb-2">Cash or Cheque</h3>
             <p className="text-gray-700">
               If you prefer to give by cash or cheque, you can do so by using
-              the donation envelopes available at church. Once you’ve completed
+              the donation envelopes available at church. Once you&apos;ve completed
               the information, drop it in the offering box located just outside
               the back auditorium doors.
             </p>

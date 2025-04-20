@@ -6,7 +6,7 @@ import { PlayCircle, Mic, Heart, ChevronRight } from "lucide-react";
 
 export default function WorshipConnectSection() {
   return (
-    <section className="relative px-6 pt-24 pb-16 -mt-24 bg-gray-100">
+    <section className="relative px-6 pt-24 pb-16 -mt-20 bg-gray-100">
       <motion.div
         className="grid max-w-2xl gap-12 pt-24 mx-auto md:grid-cols-2"
         initial={{ opacity: 0, y: 20 }}

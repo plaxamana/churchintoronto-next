@@ -5,11 +5,11 @@ import CITKidsSection from "@/components/sections/CITKids";
 
 export default function Home() {
   return (
-    <div>
+    <>
       <HeroSection />
       <ServiceBanner />
       <WorshipConnectSection />
       <CITKidsSection />
-    </div>
+    </>
   );
 }

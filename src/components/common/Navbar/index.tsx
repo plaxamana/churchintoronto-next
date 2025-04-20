@@ -3,17 +3,10 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
+import { navLinks } from "@/globals";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-
-  const navLinks = [
-    { href: "/", label: "Home" },
-    { href: "/about-us", label: "About Us" },
-    { href: "/sermons", label: "Sermons" },
-    { href: "/contact", label: "Contact" },
-    { href: "/give", label: "Give" },
-  ];
 
   return (
     <nav className="fixed top-0 z-50 w-full bg-white shadow-md">

@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { Facebook, Instagram, Mail } from "lucide-react";
+import { navLinks } from "@/globals";
 
 export default function Footer() {
   return (
@@ -14,18 +15,15 @@ export default function Footer() {
           </Link>
 
           <nav className="flex flex-wrap gap-4 text-sm">
-            <Link href="/about" className="transition hover:text-white">
-              About Us
-            </Link>
-            <Link href="/sermons" className="transition hover:text-white">
-              Sermons
-            </Link>
-            <Link href="/contact" className="transition hover:text-white">
-              Contact
-            </Link>
-            <Link href="/give" className="transition hover:text-white">
-              Give
-            </Link>
+            {navLinks.map((link) => (
+              <Link
+                key={link.label}
+                href={link.href}
+                className="transition hover:text-white"
+              >
+                {link.label}
+              </Link>
+            ))}
           </nav>
         </div>
 

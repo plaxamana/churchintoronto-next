@@ -34,7 +34,7 @@ export default function Navbar() {
             <li key={label}>
               <Link
                 href={href}
-                className="transition-colors duration-200 hover:text-blue-600"
+                className="transition-colors duration-200 hover:text-blue-300"
               >
                 {label}
               </Link>

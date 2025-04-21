@@ -11,9 +11,9 @@ export default function ETransferPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative h-[50vh] bg-slate-800 text-white flex items-center justify-center text-center px-4">
+      <div className="relative h-60 bg-slate-800 text-white flex items-center justify-center text-center px-4">
         <h1 className="text-4xl sm:text-5xl font-bold">e-Transfer</h1>
-      </section>
+      </div>
 
       {/* Content */}
       <motion.section

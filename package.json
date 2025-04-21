@@ -21,7 +21,8 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "sanity": "^3.85.1",
-    "styled-components": "^6.1.17"
+    "styled-components": "^6.1.17",
+    "xml2js": "^0.6.2"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

@@ -68,6 +68,56 @@ export type Geopoint = {
   alt?: number;
 };
 
+export type Sermon = {
+  _id: string;
+  _type: "sermon";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  title?: string;
+  slug?: Slug;
+  preacher?: string;
+  date?: string;
+  audioUrl?: string;
+  content?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
+};
+
+export type BlockContent = Array<{
+  children?: Array<{
+    marks?: Array<string>;
+    text?: string;
+    _type: "span";
+    _key: string;
+  }>;
+  style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
+  listItem?: "bullet" | "number";
+  markDefs?: Array<{
+    href?: string;
+    _type: "link";
+    _key: string;
+  }>;
+  level?: number;
+  _type: "block";
+  _key: string;
+}>;
+
 export type Person = {
   _id: string;
   _type: "person";
@@ -173,11 +223,11 @@ export type Slug = {
   source?: string;
 };
 
-export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | Person | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata | Slug;
+export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | Sermon | BlockContent | Person | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata | Slug;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./src/sanity/lib/queries.ts
 // Variable: teamQuery
-// Query: *[_type == "person"] | order(lastname asc) {  _id,  "name": firstname + " " + lastname,  title,  "imageUrl": image.asset->url,  slug}
+// Query: *[_type == "person"] {  _id,  "name": firstname + " " + lastname,  title,  "imageUrl": image.asset->url,  slug}
 export type TeamQueryResult = Array<{
   _id: string;
   name: string | null;
@@ -185,11 +235,21 @@ export type TeamQueryResult = Array<{
   imageUrl: string | null;
   slug: Slug | null;
 }>;
+// Variable: sermonsQuery
+// Query: *[_type == "sermon"] | order(date desc) {  _id,  title,  preacher,  date,  "slug": slug.current}
+export type SermonsQueryResult = Array<{
+  _id: string;
+  title: string | null;
+  preacher: string | null;
+  date: string | null;
+  slug: string | null;
+}>;
 
 // Query TypeMap
 import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
-    "*[_type == \"person\"] | order(lastname asc) {\n  _id,\n  \"name\": firstname + \" \" + lastname,\n  title,\n  \"imageUrl\": image.asset->url,\n  slug\n}": TeamQueryResult;
+    "*[_type == \"person\"] {\n  _id,\n  \"name\": firstname + \" \" + lastname,\n  title,\n  \"imageUrl\": image.asset->url,\n  slug\n}": TeamQueryResult;
+    "*[_type == \"sermon\"] | order(date desc) {\n  _id,\n  title,\n  preacher,\n  date,\n  \"slug\": slug.current\n}": SermonsQueryResult;
   }
 }

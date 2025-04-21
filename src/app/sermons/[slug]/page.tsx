@@ -2,6 +2,8 @@ import { notFound } from "next/navigation";
 import { client } from "@/sanity/lib/client";
 import { getSermonBySlugQuery } from "@/sanity/lib/queries";
 
+export const revalidate = 60; // Regenerate the page at most once every 60 seconds
+
 export default async function SermonPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const sermon = await client.fetch(getSermonBySlugQuery(slug));

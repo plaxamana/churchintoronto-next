@@ -2,12 +2,9 @@ import { notFound } from "next/navigation";
 import { client } from "@/sanity/lib/client";
 import { getSermonBySlugQuery } from "@/sanity/lib/queries";
 
-type Props = {
-  params: { slug: string };
-};
-
-export default async function SermonPage({ params }: Props) {
-  const sermon = await client.fetch(getSermonBySlugQuery(params.slug));
+export default async function SermonPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const sermon = await client.fetch(getSermonBySlugQuery(slug));
 
   if (!sermon) return notFound();
 
@@ -50,4 +47,12 @@ export default async function SermonPage({ params }: Props) {
       </div>
     </>
   );
+}
+
+export async function generateStaticParams() {
+  const slugs: string[] = await client.fetch(
+    `*[_type == "sermon" && defined(slug.current)].slug.current`
+  );
+
+  return slugs.map((slug) => ({ slug }));
 }

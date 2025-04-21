@@ -23,3 +23,18 @@ export const getPaginatedSermonsQuery = (start: number, end: number) =>
 export const getSermonCountQuery = defineQuery(`
   count(*[_type == "sermon"])
 `);
+
+export const getSermonBySlugQuery = (slug: string) =>
+  defineQuery(`
+  *[_type == "sermon" && slug.current == "${slug}"][0]{
+    title,
+    date,
+    preacher,
+    audioUrl,
+    "slug": slug.current,
+    series->{
+      title,
+      "slug": slug.current
+    }
+  }
+`);

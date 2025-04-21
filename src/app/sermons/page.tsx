@@ -1,15 +1,10 @@
-import { FC } from "react";
 import SermonsTable from "@/components/sections/SermonsPage/SermonsTable";
 import { fetchSermonsPage } from "@/sanity/lib/getSermons";
 import Pagination from "@/components/common/Pagination";
 
-interface PageProps {
-  searchParams?: { [key: string]: string | string[] | undefined };
-}
-
-const SermonsPage: FC<PageProps> = async ({ searchParams }) => {
+export default async function Page({ searchParams }: any) {
   const pageParam = Array.isArray(searchParams?.page)
-    ? searchParams?.page[0]
+    ? searchParams.page[0]
     : searchParams?.page;
 
   const currentPage = parseInt(pageParam ?? "1", 10);
@@ -45,6 +40,4 @@ const SermonsPage: FC<PageProps> = async ({ searchParams }) => {
       </section>
     </>
   );
-};
-
-export default SermonsPage;
+}

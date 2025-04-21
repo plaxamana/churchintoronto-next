@@ -2,7 +2,11 @@ import SermonsTable from "@/components/sections/SermonsPage/SermonsTable";
 import { fetchSermonsPage } from "@/sanity/lib/getSermons";
 import Pagination from "@/components/common/Pagination";
 
-export default async function Page({ searchParams }: any) {
+interface PageProps {
+  searchParams?: Record<string, string | string[] | undefined>;
+}
+
+export default async function Page({ searchParams }: PageProps) {
   const pageParam = Array.isArray(searchParams?.page)
     ? searchParams.page[0]
     : searchParams?.page;

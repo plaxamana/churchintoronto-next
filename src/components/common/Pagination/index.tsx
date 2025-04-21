@@ -6,17 +6,22 @@ import { useRouter, useSearchParams } from "next/navigation";
 type Props = {
   currentPage: number;
   totalPages: number;
+  basePath?: string;
 };
 
-const Pagination = ({ totalPages }: Props) => {
+const Pagination = ({
+  currentPage,
+  totalPages,
+  basePath = "/sermons",
+}: Props) => {
   const [inputPage, setInputPage] = useState("");
   const router = useRouter();
   const searchParams = useSearchParams();
-  const currentPageParam = searchParams.get("page");
-  const currentPage = parseInt(currentPageParam || "1", 10);
 
   const handlePageChange = (page: number) => {
-    router.push(`/sermons?page=${page}`);
+    const params = new URLSearchParams(searchParams.toString());
+    params.set("page", page.toString());
+    router.push(`${basePath}?${params.toString()}`, { scroll: false });
   };
 
   const generatePageNumbers = () => {

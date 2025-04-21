@@ -12,7 +12,6 @@ const SermonsTable = ({ sermons }: { sermons: SermonsQueryResult }) => {
           <thead className="bg-gray-100">
             <tr>
               <th className="text-left p-3 font-medium">Title</th>
-              <th className="text-left p-3 font-medium">Preacher</th>
               <th className="text-left p-3 font-medium">Date</th>
             </tr>
           </thead>
@@ -22,9 +21,10 @@ const SermonsTable = ({ sermons }: { sermons: SermonsQueryResult }) => {
                 <td className="p-3 text-blue-600 hover:underline">
                   <Link href={`/sermons/${sermon.slug}`}>{sermon.title}</Link>
                 </td>
-                <td className="p-3">{sermon.preacher}</td>
-                <td className="p-3">
-                  {new Date(sermon.date as unknown as Date).toISOString().slice(0, 10)}
+                <td className="p-3 w-auto">
+                  {new Date(sermon.date as unknown as Date)
+                    .toISOString()
+                    .slice(0, 10)}
                 </td>
               </tr>
             ))}

@@ -2,12 +2,15 @@ import SermonsTable from "@/components/sections/SermonsPage/SermonsTable";
 import { fetchSermonsPage } from "@/sanity/lib/getSermons";
 import Pagination from "@/components/common/Pagination";
 
-type Props = {
-  searchParams: { page?: string };
-};
-
-export default async function Page({ searchParams }: Props) {
-  const currentPage = parseInt(searchParams.page || "1", 10);
+export default async function Page({
+  searchParams,
+}: {
+  searchParams?: Record<string, string | string[] | undefined>;
+}) {
+  const currentPage = parseInt(
+    typeof searchParams?.page === "string" ? searchParams.page : "1",
+    10
+  );
   const pageSize = 10;
 
   const { sermons, total } = await fetchSermonsPage(currentPage, pageSize);
@@ -36,10 +39,7 @@ export default async function Page({ searchParams }: Props) {
       </section>
       <section className="max-w-7xl mx-auto py-12 px-4">
         <SermonsTable sermons={sermons} />
-        <Pagination
-          currentPage={currentPage}
-          totalPages={totalPages}
-        />
+        <Pagination currentPage={currentPage} totalPages={totalPages} />
       </section>
     </>
   );

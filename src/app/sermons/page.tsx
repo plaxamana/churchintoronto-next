@@ -5,12 +5,13 @@ import Pagination from "@/components/common/Pagination";
 export default async function Page({
   searchParams,
 }: {
-  searchParams?: Record<string, string | string[] | undefined>;
+  searchParams: { [key: string]: string | string[] | undefined };
 }) {
-  const currentPage = parseInt(
-    typeof searchParams?.page === "string" ? searchParams.page : "1",
-    10
-  );
+  const pageParam = Array.isArray(searchParams.page)
+    ? searchParams.page[0]
+    : searchParams.page;
+
+  const currentPage = parseInt(pageParam ?? "1", 10);
   const pageSize = 10;
 
   const { sermons, total } = await fetchSermonsPage(currentPage, pageSize);
